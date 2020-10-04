@@ -105,6 +105,9 @@ def login():
             return jsonify(len(list(filter(lambda x: x["email"] == email and x["password"] == password, users))) == 1)
         else:
             return jsonify({"error": "Invalid form"})
+    except:
+        return jsonify({"error": "Invalid form"})
+
 
 @app.route("/api/register", methods=["POST"])
 def register():
